@@ -30,7 +30,7 @@ import { AuthNavbarComponent } from "./components/navbars/auth-navbar/auth-navba
 import { CardBarChartComponent } from "./components/cards/card-bar-chart/card-bar-chart.component";
 import { CardLineChartComponent } from "./components/cards/card-line-chart/card-line-chart.component";
 import { CardPageVisitsComponent } from "./components/cards/card-page-visits/card-page-visits.component";
-import { CardProfileComponent } from "./components/cards/card-profile/card-profile.component";
+import { CardActorComponent } from "./components/cards/card-actor/card-actor.component";
 import { CardSettingsComponent } from "./components/cards/card-settings/card-settings.component";
 import { CardSocialTrafficComponent } from "./components/cards/card-social-traffic/card-social-traffic.component";
 import { CardStatsComponent } from "./components/cards/card-stats/card-stats.component";
@@ -47,7 +47,8 @@ import { PagesDropdownComponent } from "./components/dropdowns/pages-dropdown/pa
 import { NotificationDropdownComponent } from "./components/dropdowns/notification-dropdown/notification-dropdown.component";
 import { SidebarComponent } from "./components/sidebar/sidebar.component";
 import { UserDropdownComponent } from "./components/dropdowns/user-dropdown/user-dropdown.component";
-
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,7 +65,7 @@ import { UserDropdownComponent } from "./components/dropdowns/user-dropdown/user
     FooterSmallComponent,
     FooterAdminComponent,
     CardPageVisitsComponent,
-    CardProfileComponent,
+    CardActorComponent,
     CardSettingsComponent,
     CardSocialTrafficComponent,
     CardStatsComponent,
@@ -84,8 +85,9 @@ import { UserDropdownComponent } from "./components/dropdowns/user-dropdown/user
     IndexComponent,
     LandingComponent,
     ProfileComponent,
+
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule,HttpClientModule, BrowserAnimationsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

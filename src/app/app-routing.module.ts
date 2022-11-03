@@ -46,7 +46,7 @@ const routes: Routes = [
   // no layout views
   { path: "profile", component: ProfileComponent },
   { path: "landing", component: LandingComponent },
-  { path: "", component: IndexComponent },
+  { path: "", redirectTo: "admin", pathMatch:"full" },
   { path: "**", redirectTo: "", pathMatch: "full" },
 ];
 
