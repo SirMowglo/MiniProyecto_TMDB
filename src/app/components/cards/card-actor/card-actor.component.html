@@ -7,8 +7,8 @@
         <div class="relative">
           <img
             alt="..."
-            src="assets/img/team-2-800x800.jpg"
-            class="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px"
+            [src]="this.getActorImage(this.data.actor)"
+            class="shadow-xl rounded-full align-middle border-none -m-16 -ml-20 lg:-ml-16 max-w-150-px"
           />
         </div>
       </div>
@@ -18,25 +18,26 @@
             <span
               class="text-xl font-bold block uppercase tracking-wide text-blueGray-600"
             >
-              22
+              <span *ngIf="this.data.actorDetails.gender ==2"> Male</span>
+              <span *ngIf="this.data.actorDetails.gender ==1"> Female</span>
             </span>
-            <span class="text-sm text-blueGray-400">Friends</span>
+            <span class="text-sm text-blueGray-400">Gender</span>
           </div>
           <div class="mr-4 p-3 text-center">
             <span
               class="text-xl font-bold block uppercase tracking-wide text-blueGray-600"
             >
-              10
+              {{this.getAge(this.data.actorDetails)}}
             </span>
-            <span class="text-sm text-blueGray-400">Photos</span>
+            <span class="text-sm text-blueGray-400">Age</span>
           </div>
           <div class="lg:mr-4 p-3 text-center">
             <span
               class="text-xl font-bold block uppercase tracking-wide text-blueGray-600"
             >
-              89
+              {{this.truncNumber(this.data.actorDetails.popularity)}}
             </span>
-            <span class="text-sm text-blueGray-400">Comments</span>
+            <span class="text-sm text-blueGray-400">Popularity</span>
           </div>
         </div>
       </div>
@@ -51,25 +52,15 @@
         class="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase"
       >
         <i class="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>
-        Los Angeles, California
+        {{this.data.actorDetails.place_of_birth}}
       </div>
       <div class="mb-2 text-blueGray-600 mt-10">
         <i class="fas fa-briefcase mr-2 text-lg text-blueGray-400"></i>
-        Solution Manager - Creative Tim Officer
-      </div>
-      <div class="mb-2 text-blueGray-600">
-        <i class="fas fa-university mr-2 text-lg text-blueGray-400"></i>
-        University of Computer Science
+        {{this.data.actorDetails.known_for_department}}
       </div>
     </div>
     <div class="mt-10 py-10 border-t border-blueGray-200 text-center">
-      <div class="flex flex-wrap justify-center">
-        <div class="w-full lg:w-9/12 px-4">
-          <a href="javascript:void(0);" class="font-normal text-red-600">
-            Show more
-          </a>
-        </div>
-      </div>
+      
     </div>
   </div>
 </div>

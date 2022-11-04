@@ -11,7 +11,7 @@ import { AuthComponent } from "./layouts/auth/auth.component";
 // admin views
 import { DashboardComponent } from "./views/admin/dashboard/dashboard.component";
 import { MapsComponent } from "./views/admin/maps/maps.component";
-import { SettingsComponent } from "./views/admin/settings/settings.component";
+import { ActorListComponent } from "./views/admin/actor-list/actor-list.component";
 import { TablesComponent } from "./views/admin/tables/tables.component";
 
 // auth views
@@ -79,7 +79,7 @@ import { ActorDetailsComponent } from './views/admin/actor-details/actor-details
     AdminComponent,
     AuthComponent,
     MapsComponent,
-    SettingsComponent,
+    ActorListComponent,
     TablesComponent,
     LoginComponent,
     RegisterComponent,
@@ -87,7 +87,6 @@ import { ActorDetailsComponent } from './views/admin/actor-details/actor-details
     LandingComponent,
     ProfileComponent,
     ActorDetailsComponent,
-
   ],
   imports: [BrowserModule, AppRoutingModule,HttpClientModule, BrowserAnimationsModule],
   providers: [],

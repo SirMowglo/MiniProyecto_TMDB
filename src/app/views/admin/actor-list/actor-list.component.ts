@@ -4,10 +4,10 @@ import { ActorsDetailResponse } from "src/app/interfaces/actorsDetails.interface
 import { ActorsService } from "src/app/services/actors.service";
 
 @Component({
-  selector: "app-settings",
-  templateUrl: "./settings.component.html",
+  selector: "app-actor-list",
+  templateUrl: "./actor-list.component.html",
 })
-export class SettingsComponent implements OnInit {
+export class ActorListComponent implements OnInit {
   actorsList: Actor[] = [];
   actorDetails!: ActorsDetailResponse;
 

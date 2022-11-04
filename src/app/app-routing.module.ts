@@ -9,7 +9,7 @@ import { ActorDetailsComponent } from "./views/admin/actor-details/actor-details
 // admin views
 import { DashboardComponent } from "./views/admin/dashboard/dashboard.component";
 import { MapsComponent } from "./views/admin/maps/maps.component";
-import { SettingsComponent } from "./views/admin/settings/settings.component";
+import { ActorListComponent } from "./views/admin/actor-list/actor-list.component";
 import { TablesComponent } from "./views/admin/tables/tables.component";
 
 // auth views
@@ -28,16 +28,16 @@ const routes: Routes = [
     component: AdminComponent,
     children: [
       {
-        path: "settings",
+        path: "dashboard",
         component: DashboardComponent,
         
       },
-      { path: "dashboard", component: SettingsComponent },
-      { path: "", component: DashboardComponent },
-      { path: "dashboard/:id", component: ActorDetailsComponent },
+      { path: "actorlist", component: ActorListComponent },
+      { path: "dashboard", component: DashboardComponent },
+      { path: "actorlist/:id", component: ActorDetailsComponent },
       { path: "tables", component: TablesComponent },
       { path: "maps", component: MapsComponent },
-      { path: "", redirectTo: "settings", pathMatch: "full" },
+      { path: "", redirectTo: "actorlist", pathMatch: "full" },
     ],
   },
   // auth views
