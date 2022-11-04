@@ -16,9 +16,9 @@ export class ActorsService {
       `${environment.base_url}/person/popular?api_key=${environment.api_key}&page=${page}`
     );
   }
-  public getActorsDetails(actor: Actor): Observable<ActorsDetailResponse> {
+  public getActorsDetails(id: string): Observable<ActorsDetailResponse> {
     return this.http.get<ActorsDetailResponse>(
-      `${environment.base_url}/person/${actor.id}?api_key=${environment.api_key}`
+      `${environment.base_url}/person/${id}?api_key=${environment.api_key}`
     );
   }
 }

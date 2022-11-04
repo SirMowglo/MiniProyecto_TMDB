@@ -49,6 +49,7 @@ import { SidebarComponent } from "./components/sidebar/sidebar.component";
 import { UserDropdownComponent } from "./components/dropdowns/user-dropdown/user-dropdown.component";
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ActorDetailsComponent } from './views/admin/actor-details/actor-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -85,6 +86,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     IndexComponent,
     LandingComponent,
     ProfileComponent,
+    ActorDetailsComponent,
 
   ],
   imports: [BrowserModule, AppRoutingModule,HttpClientModule, BrowserAnimationsModule],
