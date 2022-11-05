@@ -12,6 +12,7 @@ import { ActorsService } from "src/app/services/actors.service";
 export class CardActorComponent implements OnInit {
   data: ActorDialogData = {} as ActorDialogData;
   id='';
+  moviesList: string[]=[];
 
   constructor(private route: ActivatedRoute, private actorsService: ActorsService) {}
 
@@ -25,13 +26,15 @@ export class CardActorComponent implements OnInit {
   getActorDetails(id: string){
     this.actorsService.getActorsDetails(id).subscribe(resp=>{
       this.data.actorDetails = resp;
-    })
+    });
 
   }
   getActors(page: number) {
     this.actorsService.getActors(page).subscribe((resp) => {
       this.data.actor = resp.results.find(x => x.id.toString() === this.id);
+      this.getActorMovies(this.data.actor);
     });
+    
   }
   getAge(actor: ActorsDetailResponse) {
     let age: number;
@@ -45,6 +48,12 @@ export class CardActorComponent implements OnInit {
       url = `https://image.tmdb.org/t/p/original${actor.profile_path}`;
     }
     return url;
+  }
+
+  getActorMovies(actor: Actor) {
+    for(var i =0;i < actor.known_for.length; i++){
+      this.moviesList.push(actor.known_for[i].poster_path); 
+    }
   }
   truncNumber(num: number) {
     let truncado: number;

@@ -9,7 +9,7 @@ import { AdminComponent } from "./layouts/admin/admin.component";
 import { AuthComponent } from "./layouts/auth/auth.component";
 
 // admin views
-import { DashboardComponent } from "./views/admin/dashboard/dashboard.component";
+import { FavMoviesComponent } from "./views/admin/fav-movies/fav-movies.component";
 import { MapsComponent } from "./views/admin/maps/maps.component";
 import { ActorListComponent } from "./views/admin/actor-list/actor-list.component";
 import { TablesComponent } from "./views/admin/tables/tables.component";
@@ -47,13 +47,13 @@ import { PagesDropdownComponent } from "./components/dropdowns/pages-dropdown/pa
 import { NotificationDropdownComponent } from "./components/dropdowns/notification-dropdown/notification-dropdown.component";
 import { SidebarComponent } from "./components/sidebar/sidebar.component";
 import { UserDropdownComponent } from "./components/dropdowns/user-dropdown/user-dropdown.component";
-import { HttpClientModule } from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ActorDetailsComponent } from './views/admin/actor-details/actor-details.component';
+import { HttpClientModule } from "@angular/common/http";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { ActorDetailsComponent } from "./views/admin/actor-details/actor-details.component";
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent,
+    FavMoviesComponent,
     CardBarChartComponent,
     CardLineChartComponent,
     IndexDropdownComponent,
@@ -88,7 +88,12 @@ import { ActorDetailsComponent } from './views/admin/actor-details/actor-details
     ProfileComponent,
     ActorDetailsComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule,HttpClientModule, BrowserAnimationsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -7,7 +7,7 @@ import { AuthComponent } from "./layouts/auth/auth.component";
 import { ActorDetailsComponent } from "./views/admin/actor-details/actor-details.component";
 
 // admin views
-import { DashboardComponent } from "./views/admin/dashboard/dashboard.component";
+import { FavMoviesComponent } from "./views/admin/fav-movies/fav-movies.component";
 import { MapsComponent } from "./views/admin/maps/maps.component";
 import { ActorListComponent } from "./views/admin/actor-list/actor-list.component";
 import { TablesComponent } from "./views/admin/tables/tables.component";
@@ -28,12 +28,11 @@ const routes: Routes = [
     component: AdminComponent,
     children: [
       {
-        path: "dashboard",
-        component: DashboardComponent,
-        
+        path: "favMovies",
+        component: FavMoviesComponent,
       },
       { path: "actorlist", component: ActorListComponent },
-      { path: "dashboard", component: DashboardComponent },
+      { path: "favMovies", component: FavMoviesComponent },
       { path: "actorlist/:id", component: ActorDetailsComponent },
       { path: "tables", component: TablesComponent },
       { path: "maps", component: MapsComponent },
