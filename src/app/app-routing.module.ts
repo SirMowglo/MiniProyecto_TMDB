@@ -10,7 +10,7 @@ import { ActorDetailsComponent } from "./views/admin/actor-details/actor-details
 import { FavMoviesComponent } from "./views/admin/fav-movies/fav-movies.component";
 import { MapsComponent } from "./views/admin/maps/maps.component";
 import { ActorListComponent } from "./views/admin/actor-list/actor-list.component";
-import { TablesComponent } from "./views/admin/tables/tables.component";
+import { MovieListComponent } from "./views/admin/movie-list/movie-list.component";
 
 // auth views
 import { LoginComponent } from "./views/auth/login/login.component";
@@ -34,7 +34,7 @@ const routes: Routes = [
       { path: "actorlist", component: ActorListComponent },
       { path: "favMovies", component: FavMoviesComponent },
       { path: "actorlist/:id", component: ActorDetailsComponent },
-      { path: "tables", component: TablesComponent },
+      { path: "tables", component: MovieListComponent },
       { path: "maps", component: MapsComponent },
       { path: "", redirectTo: "actorlist", pathMatch: "full" },
     ],

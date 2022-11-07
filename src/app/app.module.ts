@@ -12,7 +12,7 @@ import { AuthComponent } from "./layouts/auth/auth.component";
 import { FavMoviesComponent } from "./views/admin/fav-movies/fav-movies.component";
 import { MapsComponent } from "./views/admin/maps/maps.component";
 import { ActorListComponent } from "./views/admin/actor-list/actor-list.component";
-import { TablesComponent } from "./views/admin/tables/tables.component";
+import { MovieListComponent} from "./views/admin/movie-list/movie-list.component";
 
 // auth views
 import { LoginComponent } from "./views/auth/login/login.component";
@@ -50,6 +50,7 @@ import { UserDropdownComponent } from "./components/dropdowns/user-dropdown/user
 import { HttpClientModule } from "@angular/common/http";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ActorDetailsComponent } from "./views/admin/actor-details/actor-details.component";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -80,13 +81,14 @@ import { ActorDetailsComponent } from "./views/admin/actor-details/actor-details
     AuthComponent,
     MapsComponent,
     ActorListComponent,
-    TablesComponent,
+    MovieListComponent,
     LoginComponent,
     RegisterComponent,
     IndexComponent,
     LandingComponent,
     ProfileComponent,
     ActorDetailsComponent,
+    
   ],
   imports: [
     BrowserModule,
