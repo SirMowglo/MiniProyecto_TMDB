@@ -62,7 +62,7 @@ export class CardActorComponent implements OnInit {
   getActorImage(actor: Actor) {
     let url = "";
     if (actor.profile_path != null) {
-      url = `https://image.tmdb.org/t/p/original${actor.profile_path}`;
+      url = `https://image.tmdb.org/t/p/w500${actor.profile_path}`;
     }
     return url;
   }
