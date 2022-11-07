@@ -52,6 +52,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ActorDetailsComponent } from "./views/admin/actor-details/actor-details.component";
 import { MovieDetailsComponent } from "./views/admin/movie-details/movie-details.component";
 import { CardMovieComponent } from "./components/cards/card-movie/card-movie.component";
+import { RatedMoviesComponent } from './views/admin/rated-movies/rated-movies.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -90,7 +91,8 @@ import { CardMovieComponent } from "./components/cards/card-movie/card-movie.com
     ProfileComponent,
     ActorDetailsComponent,
     MovieDetailsComponent,
-    CardMovieComponent
+    CardMovieComponent,
+    RatedMoviesComponent
     
   ],
   imports: [
