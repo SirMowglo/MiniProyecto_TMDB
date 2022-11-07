@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  api_key: "",
+  api_key: "8eaeee91a7d280f08356724638c6c78b",
   base_url: "https://api.themoviedb.org/3"
 };
 //apikey Ale: 8eaeee91a7d280f08356724638c6c78b

@@ -4,6 +4,7 @@ import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
 import { ActorsResponse, Actor } from "../interfaces/actors.interfaces";
 import { ActorsDetailResponse } from "../interfaces/actorsDetails.interface";
+import { MovieCreditsResponse } from "../interfaces/movie-credits.interface";
 
 @Injectable({
   providedIn: "root",
@@ -20,5 +21,8 @@ export class ActorsService {
     return this.http.get<ActorsDetailResponse>(
       `${environment.base_url}/person/${id}?api_key=${environment.api_key}`
     );
+  }
+  public getActorsMovieCredits(person_id: string): Observable<MovieCreditsResponse>{
+    return this.http.get<MovieCreditsResponse>(`${environment.base_url}/person/${person_id}/movie_credits?api_key=${environment.api_key}`);
   }
 }

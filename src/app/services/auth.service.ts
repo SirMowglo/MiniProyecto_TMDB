@@ -28,18 +28,15 @@ export class AuthService {
       sessionDto
     );
   }
-  //===============================================================================
-  //========== Por alguna razon que desconozco no termina de funcionar ============
-  //===============================================================================
 
-  // deleteSession(
-  //   deleteSessionDto: DeleteSessionDto
-  // ): Observable<DeleteSessionResponse> {
-  //   return this.http.delete<DeleteSessionResponse>(
-  //     `${environment.base_url}/authentication/session?api_key=${environment.api_key}`,
-  //     {
-  //       body: deleteSessionDto,
-  //     }
-  //   );
-  // }
+  deleteSession(
+    deleteSessionDto: DeleteSessionDto
+  ): Observable<DeleteSessionResponse> {
+    return this.http.request<DeleteSessionResponse>('delete',
+      `${environment.base_url}/authentication/session?api_key=${environment.api_key}`,
+      {
+        body: deleteSessionDto,
+      }
+    );
+  }
 }

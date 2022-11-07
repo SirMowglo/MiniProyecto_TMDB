@@ -49,25 +49,20 @@ export class SidebarComponent implements OnInit {
       window.location.href = `https://www.themoviedb.org/authenticate/${this.reqToken}?redirect_to=http://localhost:4200/admin`;
     });
   }
-  // Al no funcionar el deleteSession() del servicio, simplemente cambio el approved para que pueda desverse elementos
-  // logout() {
-  //   let deleteSessionDto = new DeleteSessionDto();
-  //   if (localStorage.getItem("session_id") != null) {
-  //     deleteSessionDto.session_id = localStorage.getItem("session_id")!;
-  //     this.authService.deleteSession(deleteSessionDto).subscribe((resp) => {
-  //       if (resp.success) {
-  //         localStorage.removeItem("session_id");
-  //         this.approved = false;
-  //       }
-  //     });
-  //   }
-  // }
-
-  logout(){
-    this.approved = false;
-    localStorage.removeItem("session_id");
-    this.router.navigate(['/admin/actorlist']);
+  logout() {
+    let deleteSessionDto = new DeleteSessionDto();
+    if (localStorage.getItem("session_id") != null) {
+      deleteSessionDto.session_id = localStorage.getItem("session_id")!;
+      this.authService.deleteSession(deleteSessionDto).subscribe((resp) => {
+        if (resp.success) {
+          localStorage.removeItem("session_id");
+          this.approved = false;
+          this.router.navigate(['/admin/actorlist']);
+        }
+      });
+    }
   }
+
   toggleCollapseShow(classes) {
     this.collapseShow = classes;
   }
