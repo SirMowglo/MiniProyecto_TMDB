@@ -3,8 +3,9 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { FavMoviesResponse } from '../interfaces/fav-movies.interface';
+import { MovieVideoResponse } from '../interfaces/movie-videos';
 import { MoviesResponse } from '../interfaces/movies.interface';
-import { MoviesDetailResponse } from '../interfaces/moviesDetails.interface';
+import { MovieDetailsResponse } from '../interfaces/moviesDetails.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -15,12 +16,18 @@ export class MoviesService {
 
   public getMovies(): Observable<MoviesResponse> {
     return this.http.get<MoviesResponse>(
-      `${environment.base_url}/movie/popular?api_key=${environment.api_key}&language=en-US&page=1`  //ojo que he puesto pagina 1 no la variable
+      `${environment.base_url}/movie/popular?api_key=${environment.api_key}`  //ojo que he puesto pagina 1 no la variable
     );
   }
-  public getMovieDetails(id: string): Observable<MoviesDetailResponse> {
-    return this.http.get<MoviesDetailResponse>(
-      `${environment.base_url}/movie/${id}/videos?api_key=${environment.api_key}&language=en-US`
+  public getMovieDetails(id: string): Observable<MovieDetailsResponse> {
+    return this.http.get<MovieDetailsResponse>(
+      `${environment.base_url}/movie/${id}?api_key=${environment.api_key}`
+    );
+  }
+
+  public getMovieVideo(id: string): Observable<MovieVideoResponse> {
+    return this.http.get<MovieVideoResponse>(
+      `${environment.base_url}/movie/${id}/videos?api_key=${environment.api_key}`
     );
   }
 
