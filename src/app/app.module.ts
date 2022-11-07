@@ -9,9 +9,9 @@ import { AdminComponent } from "./layouts/admin/admin.component";
 import { AuthComponent } from "./layouts/auth/auth.component";
 
 // admin views
-import { DashboardComponent } from "./views/admin/dashboard/dashboard.component";
+import { FavMoviesComponent } from "./views/admin/fav-movies/fav-movies.component";
 import { MapsComponent } from "./views/admin/maps/maps.component";
-import { SettingsComponent } from "./views/admin/settings/settings.component";
+import { ActorListComponent } from "./views/admin/actor-list/actor-list.component";
 import { TablesComponent } from "./views/admin/tables/tables.component";
 
 // auth views
@@ -30,7 +30,7 @@ import { AuthNavbarComponent } from "./components/navbars/auth-navbar/auth-navba
 import { CardBarChartComponent } from "./components/cards/card-bar-chart/card-bar-chart.component";
 import { CardLineChartComponent } from "./components/cards/card-line-chart/card-line-chart.component";
 import { CardPageVisitsComponent } from "./components/cards/card-page-visits/card-page-visits.component";
-import { CardProfileComponent } from "./components/cards/card-profile/card-profile.component";
+import { CardActorComponent } from "./components/cards/card-actor/card-actor.component";
 import { CardSettingsComponent } from "./components/cards/card-settings/card-settings.component";
 import { CardSocialTrafficComponent } from "./components/cards/card-social-traffic/card-social-traffic.component";
 import { CardStatsComponent } from "./components/cards/card-stats/card-stats.component";
@@ -47,11 +47,13 @@ import { PagesDropdownComponent } from "./components/dropdowns/pages-dropdown/pa
 import { NotificationDropdownComponent } from "./components/dropdowns/notification-dropdown/notification-dropdown.component";
 import { SidebarComponent } from "./components/sidebar/sidebar.component";
 import { UserDropdownComponent } from "./components/dropdowns/user-dropdown/user-dropdown.component";
-
+import { HttpClientModule } from "@angular/common/http";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { ActorDetailsComponent } from "./views/admin/actor-details/actor-details.component";
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent,
+    FavMoviesComponent,
     CardBarChartComponent,
     CardLineChartComponent,
     IndexDropdownComponent,
@@ -64,7 +66,7 @@ import { UserDropdownComponent } from "./components/dropdowns/user-dropdown/user
     FooterSmallComponent,
     FooterAdminComponent,
     CardPageVisitsComponent,
-    CardProfileComponent,
+    CardActorComponent,
     CardSettingsComponent,
     CardSocialTrafficComponent,
     CardStatsComponent,
@@ -77,15 +79,21 @@ import { UserDropdownComponent } from "./components/dropdowns/user-dropdown/user
     AdminComponent,
     AuthComponent,
     MapsComponent,
-    SettingsComponent,
+    ActorListComponent,
     TablesComponent,
     LoginComponent,
     RegisterComponent,
     IndexComponent,
     LandingComponent,
     ProfileComponent,
+    ActorDetailsComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

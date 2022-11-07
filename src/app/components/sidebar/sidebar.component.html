@@ -82,7 +82,7 @@
       <ul class="md:flex-col md:min-w-full flex flex-col list-none">
         <li class="items-center">
           <a
-            [routerLink]="['/admin/dashboard']"
+            [routerLink]="['/admin/actorlist']"
             class="text-xs uppercase py-3 font-bold block"
             routerLinkActive
             #adminDashboard="routerLinkActive"
@@ -102,29 +102,8 @@
           </a>
         </li>
 
-        <li class="items-center">
-          <a
-            [routerLink]="['/admin/settings']"
-            class="text-xs uppercase py-3 font-bold block"
-            routerLinkActive
-            #adminSettings="routerLinkActive"
-            [ngClass]="
-              adminSettings.isActive
-                ? 'text-red-600 hover:text-red-700'
-                : 'text-blueGray-700 hover:text-blueGray-500'
-            "
-          >
-            <i
-              class="fas fa-solid fa-heart mr-2 text-sm"
-              [ngClass]="
-                adminSettings.isActive ? 'opacity-75' : 'text-blueGray-300'
-              "
-            ></i>
-            Favorite actors
-          </a>
-        </li>
       </ul>
-
+      
       <!-- Divider -->
       <hr class="my-4 md:min-w-full" />
       <!-- Heading -->
@@ -133,33 +112,34 @@
       >
       Movies
     </h6>
-<!-- Navigation -->
-
-<ul class="md:flex-col md:min-w-full flex flex-col list-none">
-  <li class="items-center">
+    <!-- Navigation -->
+    
+    <ul class="md:flex-col md:min-w-full flex flex-col list-none">
+      <li class="items-center">
     <a
-      [routerLink]="['/admin/tables']"
-      class="text-xs uppercase py-3 font-bold block"
-      routerLinkActive
-      #adminTables="routerLinkActive"
-      [ngClass]="
-      adminTables.isActive
-      ? 'text-red-600 hover:text-red-700'
-      : 'text-blueGray-700 hover:text-blueGray-500'
+    [routerLink]="['/admin/tables']"
+    class="text-xs uppercase py-3 font-bold block"
+    routerLinkActive
+    #adminTables="routerLinkActive"
+    [ngClass]="
+    adminTables.isActive
+    ? 'text-red-600 hover:text-red-700'
+    : 'text-blueGray-700 hover:text-blueGray-500'
       "
       >
       <i
-        class="fas fa-solid fa-film mr-2 text-sm"
-        [ngClass]="
-          adminTables.isActive ? 'opacity-75' : 'text-blueGray-300'
-          "
-          ></i>
-          Popular movies
-        </a>
+      class="fas fa-solid fa-film mr-2 text-sm"
+      [ngClass]="
+      adminTables.isActive ? 'opacity-75' : 'text-blueGray-300'
+      "
+      ></i>
+      Popular movies
+    </a>
   </li>
   
   <li class="items-center">
     <a
+    *ngIf="approved"
     [routerLink]="['/admin/maps']"
       class="text-xs uppercase py-3 font-bold block"
       routerLinkActive
@@ -171,12 +151,35 @@
       "
       >
       <i
+      
       class="fas fa-solid fa-star mr-2 text-sm"
       [ngClass]="
       adminMaps.isActive ? 'opacity-75' : 'text-blueGray-300'
       "
       ></i>
       Rated movies
+    </a>
+  </li>
+  <li class="items-center">
+    <a
+    *ngIf="approved"
+      [routerLink]="['/admin/favMovies']"
+      class="text-xs uppercase py-3 font-bold block"
+      routerLinkActive
+      #adminSettings="routerLinkActive"
+      [ngClass]="
+        adminSettings.isActive
+          ? 'text-red-600 hover:text-red-700'
+          : 'text-blueGray-700 hover:text-blueGray-500'
+      "
+    >
+      <i
+        class="fas fa-solid fa-heart mr-2 text-sm"
+        [ngClass]="
+          adminSettings.isActive ? 'opacity-75' : 'text-blueGray-300'
+        "
+      ></i>
+      Favorite movies
     </a>
   </li>
 </ul>
@@ -193,11 +196,22 @@
 <ul class="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
   <li class="items-center">
     <a
-      [routerLink]="['/auth/login']"
+    onMouseOver="this.style.cssText='cursor:pointer'" 
+      (click)="requestToken()" *ngIf="!approved"
       class="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
     >
       <i class="fas fa-fingerprint text-blueGray-300 mr-2 text-sm"></i>
       Login
+    </a>
+  </li>
+  <li class="items-center">
+    <a
+      onMouseOver="this.style.cssText='cursor:pointer'" 
+      (click)="logout()" *ngIf="approved"
+      class="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
+    >
+      <i class="fas fa-fingerprint text-blueGray-300 mr-2 text-sm"></i>
+      Logout
     </a>
   </li>
 </ul>
