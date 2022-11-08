@@ -46,7 +46,7 @@ export class SidebarComponent implements OnInit {
   requestToken() {
     this.authService.createRequestToken().subscribe((resp) => {
       this.reqToken = resp.request_token;
-      window.location.href = `https://www.themoviedb.org/authenticate/${this.reqToken}?redirect_to=https://tmdbminiproject.web.app`;
+      window.location.href = `https://www.themoviedb.org/authenticate/${this.reqToken}?redirect_to=https://tmdbminiproject.web.app/admin`;
     });
   }
   logout() {
