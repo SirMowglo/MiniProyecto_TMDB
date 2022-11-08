@@ -6,6 +6,7 @@ import { FavMoviesResponse } from '../interfaces/fav-movies.interface';
 import { MovieVideoResponse } from '../interfaces/movie-videos';
 import { MoviesResponse } from '../interfaces/movies.interface';
 import { MovieDetailsResponse } from '../interfaces/moviesDetails.interface';
+import { RatedMoviesResponse } from '../interfaces/rated-movies.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -34,5 +35,10 @@ export class MoviesService {
   getFavoriteMovies(): Observable<FavMoviesResponse> {
     let session_id: string = localStorage.getItem("session_id");
     return this.http.get<FavMoviesResponse>(`${environment.base_url}/account/0/favorite/movies?session_id=${session_id}&api_key=${environment.api_key}`);
+  }
+
+  getRatedMovies(): Observable<RatedMoviesResponse> {  
+    let session_id: string = localStorage.getItem("session_id");
+    return this.http.get<RatedMoviesResponse>(`${environment.base_url}/account/0/rated/movies?session_id=${session_id}&api_key=${environment.api_key}`); 
   }
 }

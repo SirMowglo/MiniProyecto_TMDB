@@ -21,6 +21,7 @@ import { IndexComponent } from "./views/index/index.component";
 import { LandingComponent } from "./views/landing/landing.component";
 import { ProfileComponent } from "./views/profile/profile.component";
 import { MovieDetailsComponent } from "./views/admin/movie-details/movie-details.component";
+import { RatedMoviesComponent } from "./views/admin/rated-movies/rated-movies.component";
 
 const routes: Routes = [
   // admin views
@@ -34,6 +35,7 @@ const routes: Routes = [
       },
       { path: "actorlist", component: ActorListComponent },
       { path: "favMovies", component: FavMoviesComponent },
+      { path: "ratedMovies", component: RatedMoviesComponent },
       { path: "actorlist/:id", component: ActorDetailsComponent },
       { path: "movielist", component: MovieListComponent },
       { path: "movielist/:id", component: MovieDetailsComponent },
