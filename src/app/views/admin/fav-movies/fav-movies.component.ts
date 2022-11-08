@@ -24,7 +24,7 @@ export class FavMoviesComponent implements OnInit {
   getMovieImage(movie: Movie) {
     let url = "";
     if (movie.poster_path != null) {
-      url = `https://image.tmdb.org/t/p/original${movie.poster_path}`;
+      url = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
     }
     return url;
   }
