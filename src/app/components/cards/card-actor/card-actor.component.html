@@ -70,8 +70,8 @@
       <div class="w-full px-4 flex justify-center align-middle">
         <img
           *ngFor="let movieKF of knownForMovies"
-          [routerLink]="movieKF.id"
-          src="https://image.tmdb.org/t/p/w500{{ movieKF }}"
+          [routerLink]="['/admin/movielist', movieKF.id]"
+          src="https://image.tmdb.org/t/p/w500{{ movieKF.poster_path }}"
           alt=""
           class="align-middle max-w-200-px lg:hover: cursor-pointer"
           style="padding: 0px 30px"
@@ -94,7 +94,7 @@
       >
         <img
           *ngFor="let movie of actorMovies"
-          routerLink="movielist/{{movie.id}}"
+          [routerLink]="['/admin/movielist', movie.id]"
           src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}"
           alt=""
           class="align-middle max-w-200-px lg:hover: cursor-pointer"

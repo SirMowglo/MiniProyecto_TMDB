@@ -1,11 +1,12 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { createPopper } from "@popperjs/core";
 import { ActorDialogData } from "src/app/interfaces/actorData.interface";
 import { Actor } from "src/app/interfaces/actors.interfaces";
 import { ActorsDetailResponse } from "src/app/interfaces/actorsDetails.interface";
 import { Cast } from "src/app/interfaces/movie-credits.interface";
 import { ActorsService } from "src/app/services/actors.service";
+import {KnownFor} from "src/app/interfaces/actors.interfaces"
 
 @Component({
   selector: "app-card-actor",
@@ -19,13 +20,14 @@ export class CardActorComponent implements OnInit {
 
   data: ActorDialogData = {} as ActorDialogData;
   id = "";
-  knownForMovies: string[] = [];
+  knownForMovies: KnownFor[] = [];
   actorMovies: Cast[] = [];
 
   popper = document.createElement("div");
   constructor(
     private route: ActivatedRoute,
-    private actorsService: ActorsService
+    private actorsService: ActorsService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {;
@@ -69,7 +71,7 @@ export class CardActorComponent implements OnInit {
 
   getKnownForMovies(actor: Actor) {
     for (var i = 0; i < actor.known_for.length; i++) {
-      this.knownForMovies.push(actor.known_for[i].poster_path);
+      this.knownForMovies.push(actor.known_for[i]);
     }
   }
   truncNumber(num: number) {
@@ -95,5 +97,10 @@ export class CardActorComponent implements OnInit {
         placement: "bottom-start",
       }
     );
+  }
+  goToMovieDetails(id: string){
+    this.router.navigate(['admin/movielist/',id]).then(() => {
+      window.location.reload();
+    });
   }
 }

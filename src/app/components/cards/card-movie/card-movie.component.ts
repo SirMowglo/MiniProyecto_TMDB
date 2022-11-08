@@ -24,7 +24,7 @@ export class CardMovieComponent implements OnInit {
       this.id = params['id']
     })
     this.getMovieDetails(this.id);
-    this.getMovies();
+    this.getMovies(this.id);
     this.getMovieVideo();
   }
 
@@ -34,20 +34,21 @@ export class CardMovieComponent implements OnInit {
     });
   }
 
-  getMovies() {
+  getMovies(id :string) {
     this.moviesService.getMovies().subscribe((resp) => {
-      this.dataMovie = resp.results.find(x => x.id.toString() === this.id);
+      this.dataMovie = resp.results.find(x => x.id.toString() === id);
     });
     
   }
 
 
-  getMovieImage(movies : Movies) {
-  
+  getMovieImage(movies : MovieDetailsResponse) {
+  return `https://image.tmdb.org/t/p/w500${movies.poster_path}`;
+    
+  /*
     if (movies.poster_path != null) {
-    return `https://image.tmdb.org/t/p/w500/${movies.poster_path}`;
-    }
-   
+    url = `https://image.tmdb.org/t/p/w500/${movies.poster_path}`;
+    }*/
   }
 
   getMovieVideo (){
