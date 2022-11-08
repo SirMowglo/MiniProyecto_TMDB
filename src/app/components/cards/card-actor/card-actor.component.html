@@ -83,7 +83,6 @@
       <a
         class="lg:text-red-600 lg:hover:text-red-700 text-red-600 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold justify-center"
         href="#pablo"
-        (click)="toggleDropdown($event)"
         #btnDropdownRef
       >
         More movies:
@@ -91,12 +90,11 @@
     </div>
     <div
         class="w-full px-4 flex flex-wrap justify-center align-middle "
-        
         #popoverDropdownRef
       >
         <img
           *ngFor="let movie of actorMovies"
-          [routerLink]="movie.id"
+          routerLink="movielist/{{movie.id}}"
           src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}"
           alt=""
           class="align-middle max-w-200-px lg:hover: cursor-pointer"
